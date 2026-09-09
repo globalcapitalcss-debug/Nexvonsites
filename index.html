@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXVON SITES | Tecnologia da Informação e Serviços Online — São Paulo</title>
+    <meta name="description" content="NEXVON SITES — Há 9 anos oferecendo soluções profissionais em tecnologia, sites, sistemas e serviços online em São Paulo.">
+    
+    <!-- Chart.js para Gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; }
+        :root {
+            --primario: #0A2463;       /* Azul Profundo */
+            --secundario: #1E3A8A;     /* Azul Médio */
+            --dourado: #D4AF37;        /* Dourado Premium */
+            --escuro: #0F172A;
+            --claro: #F8FAFC;
+            --cinza: #E2E8F0;
+            --sucesso: #22C55E;
+            --sombra-azul: 0 8px 32px rgba(10, 36, 99, 0.15);
+        }
+        body { line-height: 1.6; color: var(--escuro); background: #fff; }
+
+        /* ANIMAÇÕES */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes brilho {
+            0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(34, 197, 94, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+        section { animation: fadeInUp 0.8s ease-out both; }
+
+        /* CABEÇALHO */
+        header { background: rgba(10, 36, 99, 0.95); backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+        .nav { max-width: 1200px; margin: 0 auto; padding: 1rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.8rem; font-weight: 800; color: #fff; letter-spacing: 1px; text-shadow: 0 0 10px rgba(212, 175, 55, 0.3); }
+        .logo span { color: var(--dourado); }
+        .nav-links a { color: #fff; text-decoration: none; margin-left: 1.5rem; font-weight: 500; transition: all 0.3s; position: relative; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--dourado); transition: width 0.3s; }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover { color: var(--dourado); }
+        .btn-whatsapp-header { background: linear-gradient(135deg, #22C55E, #16A34A); color: #fff !important; padding: 0.6rem 1.2rem; border-radius: 50px; font-weight: 600; transition: all 0.3s; box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3); }
+        .btn-whatsapp-header:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4); }
+
+        /* SEÇÃO PRINCIPAL */
+        #hero { background: linear-gradient(135deg, var(--primario) 0%, #051441 100%); color: #fff; text-align: center; padding: 6rem 1rem; position: relative; overflow: hidden; }
+        #hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); pointer-events: none; }
+        #hero h1 { font-size: 3rem; margin-bottom: 1.5rem; position: relative; z-index: 1; }
+        #hero h1 span { color: var(--dourado); text-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
+        #hero p { font-size: 1.2rem; margin-bottom: 2.5rem; max-width: 850px; margin-left: auto; margin-right: auto; opacity: 0.95; position: relative; z-index: 1; }
+        .btn { display: inline-block; padding: 1.1rem 2.2rem; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 1.1rem; margin: 0.5rem; transition: all 0.4s; border: none; cursor: pointer; }
+        .btn-solid { background: linear-gradient(135deg, var(--dourado), #B8860B); color: var(--escuro); box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3); }
+        .btn-solid:hover { transform: translateY(-4px); box-shadow: 0 12px 35px rgba(212, 175, 55, 0.4); }
+        .btn-outline { border: 2px solid #fff; color: #fff; background: rgba(255,255,255,0.05); backdrop-filter: blur(4px); }
+        .btn-outline:hover { background: #fff; color: var(--primario); transform: translateY(-3px); }
+
+        h2 { font-size: 2.3rem; text-align: center; margin-bottom: 3.5rem; color: var(--primario); position: relative; }
+        h2::after { content: ''; display: block; width: 90px; height: 4px; background: linear-gradient(90deg, var(--dourado), #F59E0B); margin: 0.9rem auto 0; border-radius: 3px; }
+
+        section { padding: 4.5rem 1rem; max-width: 1200px; margin: 0 auto; }
+
+        /* SOBRE + GRÁFICO */
+        .sobre-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .sobre-texto p { font-size: 1.08rem; margin-bottom: 1.2rem; line-height: 1.8; }
+        .sobre-texto strong { color: var(--primario); }
+        
+        /* CAIXA AZUL COM GRÁFICO PIZZA */
+        .destaque-caixa { background: linear-gradient(145deg, var(--primario), var(--secundario)); color: #fff; padding: 2.5rem; border-radius: 16px; box-shadow: 0 15px 40px rgba(10, 36, 99, 0.25); }
+        .destaque-caixa h3 { text-align: center; font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--dourado); }
+        .grafico-container { position: relative; width: 100%; max-width: 320px; margin: 0 auto; }
+        .grafico-centro { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; pointer-events: none; }
+        .grafico-centro .numero { font-size: 2.5rem; font-weight: 800; color: var(--dourado); line-height: 1; }
+        .grafico-centro .texto { font-size: 0.85rem; opacity: 0.9; }
+
+        /* SERVIÇOS */
+        #servicos { background: linear-gradient(180deg, var(--claro), #fff); }
+        .servicos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; }
+        .servico-card { background: #fff; padding: 2.2rem; border-radius: 14px; border-top: 5px solid transparent; border-image: linear-gradient(90deg, var(--primario), var(--dourado)) 1; box-shadow: 0 8px 25px rgba(0,0,0,0.06); transition: all 0.4s; }
+        .servico-card:hover { transform: translateY(-10px); box-shadow: 0 18px 40px rgba(10, 36, 99, 0.12); }
+        .servico-card h3 { color: var(--primario); margin-bottom: 1rem; font-size: 1.25rem; }
+
+        /* TABELA PACOTES (SEM COLUNA MARGEM) */
+        #pacotes { background: #fff; }
+        .tabela-pacotes { width: 100%; border-collapse: separate; border-spacing: 0; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 35px rgba(0,0,0,0.08); }
+        .tabela-pacotes th { background: linear-gradient(90deg, var(--primario), var(--secundario)); color: #fff; padding: 1.2rem; text-align: left; font-size: 1.05rem; }
+        .tabela-pacotes tr:nth-child(even) { background: var(--claro); }
+        .tabela-pacotes tr:hover { background: rgba(10, 36, 99, 0.04); }
+        .tabela-pacotes td { padding: 1.2rem; border-bottom: 1px solid var(--cinza); font-size: 1rem; }
+        .etiqueta-basico { color: #16A34A; font-weight: 700; font-size: 1.05rem; }
+        .etiqueta-completo { color: #2563EB; font-weight: 700; font-size: 1.05rem; }
+        .etiqueta-premium { color: #D97706; font-weight: 700; font-size: 1.05rem; }
+        .valor-pacote { font-size: 1.2rem; font-weight: 800; color: var(--escuro); }
+
+        /* CONTATO E MAPA */
+        #contato { background: linear-gradient(180deg, var(--claro), #fff); }
+        .form-container { background: #fff; padding: 2.8rem; border-radius: 16px; box-shadow: 0 10px 35px rgba(0,0,0,0.08); max-width: 720px; margin: 0 auto; }
+        .grupo-form { margin-bottom: 1.4rem; }
+        label { display: block; margin-bottom: 0.6rem; font-weight: 600; color: var(--primario); font-size: 1.02rem; }
+        input, select, textarea { width: 100%; padding: 1rem; border: 2px solid var(--cinza); border-radius: 10px; font-size: 1rem; transition: all 0.3s; }
+        input:focus, select:focus, textarea:focus { outline: none; border-color: var(--primario); box-shadow: 0 0 0 4px rgba(10, 36, 99, 0.08); }
+        button { background: linear-gradient(90deg, var(--primario), var(--secundario)); color: #fff; border: none; padding: 1.1rem 2rem; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; width: 100%; transition: all 0.3s; }
+        button:hover { background: linear-gradient(90deg, var(--secundario), var(--primario)); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(10, 36, 99, 0.3); }
+
+        /* MAPA E LINKS DE DIREÇÃO */
+        .mapa-container { margin-top: 2.5rem; }
+        .mapa-links { display: flex; gap: 1rem; justify-content: center; margin-bottom: 1rem; flex-wrap: wrap; }
+        .mapa-link { padding: 0.7rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s; }
+        .link-maps { background: #4285F4; color: #fff; }
+        .link-maps:hover { background: #3367D6; transform: translateY(-2px); }
+        .link-waze { background: #41C3F0; color: #fff; }
+        .link-waze:hover { background: #0099CC; transform: translateY(-2px); }
+        .mapa { width: 100%; height: 380px; border-radius: 14px; border: 0; box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+
+        /* RODAPÉ */
+        footer { background: var(--escuro); color: #fff; text-align: center; padding: 3.5rem 1rem; margin-top: 2rem; }
+        footer p { margin-bottom: 0.6rem; opacity: 0.88; font-size: 1rem; }
+        footer p.assinatura { color: var(--dourado); font-weight: 600; margin-top: 1.2rem; font-size: 1.05rem; }
+
+        /* BOTÃO WHATSAPP FLUTUANTE */
+        .whatsapp-flutuante { position: fixed; bottom: 25px; right: 25px; z-index: 9999; animation: brilho 2s infinite; }
+        .whatsapp-flutuante a { display: flex; align-items: center; justify-content: center; width: 65px; height: 65px; background: linear-gradient(135deg, #25D366, #128C7E); border-radius: 50%; box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4); transition: all 0.3s; text-decoration: none; }
+        .whatsapp-flutuante a:hover { transform: scale(1.15); box-shadow: 0 10px 35px rgba(37, 211, 102, 0.5); }
+        .whatsapp-flutuante svg { width: 35px; height: 35px; fill: #fff; }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .sobre-content { grid-template-columns: 1fr; gap: 2rem; }
+            #hero h1 { font-size: 2rem; }
+            .whatsapp-flutuante a { width: 58px; height: 58px; }
+            section { padding: 2.5rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BOTÃO WHATSAPP FLUTUANTE -->
+    <div class="whatsapp-flutuante">
+        <a href="https://wa.me/5519997048175?text=Olá! Vim pelo site da NEXVON SITES e gostaria de solicitar um orçamento. Podem me ajudar?" target="_blank" title="Fale pelo WhatsApp">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.151-.197.297-.768.966-.94 1.163-.173.198-.346.223-.643.075-.297-.15-1.255-.463-2.39-1.476-.883-.88-1.476-1.962-1.653-2.261-.173-.298-.018-.458.133-.607.137-.136.297-.347.446-.52.149-.172.198-.296.297-.495.099-.198.05-.372-.025-.52-.075-.15-.67-1.62-.917-2.21-.242-.579-.487-.501-.67-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479c0 1.462 1.065 2.875 1.214 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.696.626.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.413-.074-.124-.272-.198-.57-.347m-5.42 7.413h-.064c-2.027-.057-3.827-.708-5.348-1.897l-.386-.284-3.764.988 1.01-3.677-.313-.403c-1.323-1.7-2.023-3.698-2.023-5.848 0-4.765 3.874-8.638 8.653-8.638 2.312 0 4.473.902 6.098 2.527 1.624 1.625 2.525 3.786 2.525 6.1 0 4.765-3.874 8.654-8.652 8.654m7.529-16.141C15.445.837 12.482 0 9.457 0 4.394 0 .264 4.13.26 9.194c0 1.613.42 3.184 1.215 4.586L0 24l10.336-2.697c1.379.751 2.912 1.149 4.529 1.15h.005c5.063 0 9.193-4.13 9.196-9.196 0-2.457-.954-4.764-2.685-6.495C21.53 3.647 19.357 1.707 16.81 0.654z"/></svg>
+        </a>
+    </div>
+
+    <!-- CABEÇALHO -->
+    <header>
+        <div class="nav">
+            <div class="logo">NEXVON <span>SITES</span></div>
+            <div class="nav-links">
+                <a href="#sobre">Sobre</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#pacotes">Pacotes</a>
+                <a href="#contato">Contato</a>
+                <a href="https://wa.me/5519997048175?text=Olá! Vim pelo site da NEXVON SITES e gostaria de solicitar um orçamento." class="btn-whatsapp-header">📱 WhatsApp</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- SEÇÃO PRINCIPAL -->
+    <section id="hero">
+        <h1>Soluções Profissionais em <span>Tecnologia da Informação</span> e Serviços Online</h1>
+        <p>Há mais de 9 anos entregando qualidade, confiança e resultados para empresas em São Paulo e região.</p>
+        <a href="https://wa.me/5519997048175?text=Olá! Vim pelo site da NEXVON SITES e gostaria de solicitar um orçamento. Podem me ajudar?" class="btn btn-solid">💬 Solicitar Orçamento</a>
+        <a href="tel:+5519997048175" class="btn btn-outline">📞 Ligar Agora</a>
+    </section>
+
+    <!-- SOBRE NÓS + GRÁFICO PIZZA -->
+    <section id="sobre">
+        <h2>Sobre a NEXVON SITES</h2>
+        <div class="sobre-content">
+            <div class="sobre-texto">
+                <p>A <strong>NEXVON SITES</strong> é referência em soluções digitais e tecnologia da informação. Atuamos com excelência há <strong>9 anos</strong>, ajudando empresas a crescerem e se destacarem no mundo digital com inovação, segurança e desempenho.</p>
+                <p>Estamos localizados na <strong>Av. Paulista, 2278 — Consolação, São Paulo/SP</strong>, prontos para atender você com atendimento personalizado, suporte dedicado e tecnologia de ponta.</p>
+                <p><strong>⏰ Horário de Atendimento:</strong> Segunda a Sexta: 8h às 18h | Sábado: 8h às 12h</p>
+            </div>
+            <div class="destaque-caixa">
+                <h3>Nossa Expertise</h3>
+                <div class="grafico-container">
+                    <canvas id="graficoPizza"></canvas>
+                    <div class="grafico-centro">
+                        <div class="numero">9+</div>
+                        <div class="texto">Anos de Experiência</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOSSOS SERVIÇOS -->
+    <section id="servicos">
+        <h2>Nossos Serviços</h2>
+        <div class="servicos-grid">
+            <div class="servico-card">
+                <h3>🌐 Criação de Sites</h3>
+                <p>Sites profissionais responsivos, otimizados para Google e dispositivos móveis.</p>
+            </div>
+            <div class="servico-card">
+                <h3>💻 Sistemas e Aplicativos</h3>
+                <p>Desenvolvimento de soluções online personalizadas para sua necessidade.</p>
+            </div>
+            <div class="servico-card">
+                <h3>📈 Otimização SEO</h3>
+                <p>Melhor posicionamento no Google e mais visitantes para seu negócio.</p>
+            </div>
+            <div class="servico-card">
+                <h3>🔧 Manutenção e Suporte</h3>
+                <p>Suporte técnico contínuo, atualizações e segurança para sua plataforma.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TABELA DE PACOTES (SEM COLUNA MARGEM) -->
+    <section id="pacotes">
+        <h2>Nossos Pacotes</h2>
+        <table class="tabela-pacotes">
+            <thead>
+                <tr>
+                    <th>Pacote</th>
+                    <th>Valor</th>
+                    <th>O que Inclui</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="etiqueta-basico">🟢 Básico</td>
+                    <td class="valor-pacote">R$ 250</td>
+                    <td>1 página, WhatsApp, telefone, mapa, serviços</td>
+                </tr>
+                <tr>
+                    <td class="etiqueta-completo">🔵 Completo</td>
+                    <td class="valor-pacote">R$ 350</td>
+                    <td>Tudo do Básico + Galeria de Fotos + Formulário de Contato</td>
+                </tr>
+                <tr>
+                    <td class="etiqueta-premium">🔴 Premium</td>
+                    <td class="valor-pacote">R$ 500</td>
+                    <td>Tudo do Completo + SEO Google + Domínio 1 ano + Suporte 30 dias</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- CONTATO E MAPA -->
+    <section id="contato">
+        <h2>Solicitar Orçamento</h2>
+        <div class="form-container">
+            <form action="https://wa.me/5519997048175" method="get" target="_blank">
+                <input type="hidden" name="text" value="Olá! Vim pelo site da NEXVON SITES e gostaria de solicitar um orçamento.">
+                <div class="grupo-form">
+                    <label for="nome">Seu Nome / Empresa</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome ou nome da empresa" required>
+                </div>
+                <div class="grupo-form">
+                    <label for="servico">Tipo de Serviço Desejado</label>
+                    <select id="servico" name="servico">
+                        <option value="Site Básico — R$ 250">Site Básico — R$ 250</option>
+                        <option value="Site Completo — R$ 350">Site Completo — R$ 350</option>
+                        <option value="Site Premium — R$ 500">Site Premium — R$ 500</option>
+                        <option value="Outro serviço / Orçamento personalizado">Outro serviço / Orçamento personalizado</option>
+                    </select>
+                </div>
+                <div class="grupo-form">
+                    <label for="mensagem">Mensagem / Detalhes</label>
+                    <textarea id="mensagem" name="mensagem" rows="4" placeholder="Descreva o que você precisa..."></textarea>
+                </div>
+                <button type="submit">📤 Enviar Solicitação para WhatsApp</button>
+            </form>
+        </div>
+
+        <!-- MAPA COM LINKS GOOGLE MAPS E WAZE -->
+        <div class="mapa-container">
+            <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">📍 Nossa Localização</h2>
+            <div class="mapa-links">
+                <a href="https://www.google.com/maps/search/?api=1&query=Av.%20Paulista%2C%202278%20-%20Consolação%2C%20São%20Paulo%20-%20SP" target="_blank" class="mapa-link link-maps">📍 Abrir no Google Maps</a>
+                <a href="https://waze.com/ul?q=Av.%20Paulista%2C%202278%20-%20Consolação%2C%20São%20Paulo%20-%20SP" target="_blank" class="mapa-link link-waze">🚗 Abrir no Waze</a>
+            </div>
+            <iframe class="mapa" src="https://www.google.com/maps/embed?pb=!1m3!1d3657.1524073731377!2d-46.6600344!3d-23.5657372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1s0x94ce59c7f4d2c3b1%3A0x7f7301b3f2e9c8a0!2sAv.%20Paulista%2C%202278%20-%20Consolação%2C%20São%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1725850000000!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p><strong>NEXVON SITES</strong> — Tecnologia da Informação e Serviços Online</p>
+        <p>📍 Av. Paulista, 2278 — Consolação, São Paulo/SP | 📱 WhatsApp: (19) 99704-8175</p>
+        <p>⏰ Seg-Sex: 8h às 18h | Sáb: 8h às 12h</p>
+        <p class="assinatura">© 2026 NEXVON SITES — Há 9 anos entregando soluções digitais de excelência.</p>
+    </footer>
+
+    <!-- SCRIPT DO GRÁFICO PIZZA -->
+    <script>
+        window.onload = function() {
+            const ctx = document.getElementById('graficoPizza').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Sites', 'Sistemas', 'SEO', 'Suporte'],
+                    datasets: [{
+                        data: [40, 25, 20, 15],
+                        backgroundColor: [
+                            '#D4AF37',   // Dourado — Sites
+                            '#22C55E',   // Verde — Sistemas
+                            '#F97316',   // Laranja — SEO
+                            '#EC4899'    // Rosa — Suporte
+                        ],
+                        borderWidth: 0,
+                        cutout: '70%',
+                        hoverOffset: 10
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: '#fff',
+                                font: { size: 13, weight: 'bold' },
+                                padding: 15,
+                                usePointStyle: true,
+                                pointStyle: 'circle'
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: '#0F172A',
+                            titleColor: '#fff',
+                            bodyColor: '#fff',
+                            padding: 12,
+                            cornerRadius: 10
+                        }
+                    },
+                    animation: {
+                        animateRotate: true,
+                        animateScale: true,
+                        duration: 2000,
+                        easing: 'easeOutQuart'
+                    }
+                }
+            });
+        };
+    </script>
+
+</body>
+</html>
