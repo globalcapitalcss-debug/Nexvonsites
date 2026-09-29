@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXVON SITES | Plataforma Quântica de Criação Digital</title>
+    <meta name="description" content="O futuro da criação de sites, hoje. Tecnologia de 2100 disponível em suas mãos.">
+    
+    <!-- Fallback de fontes — sem depender de links externos -->
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primario: #00F0FF;
+            --secundario: #7928CA;
+            --destaque: #FF00E5;
+            --dourado: #FFE600;
+            --sucesso-ws: #00E676;
+            --escuro: #020617;
+            --meio-escuro: #0F172A;
+            --vidro: rgba(0, 240, 255, 0.06);
+            --vidro-escuro: rgba(15, 23, 42, 0.85);
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            background: var(--escuro);
+            color: #FFFFFF;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* FUNDO QUÂNTICO — ANO 2100 */
+        .fundo-quantico {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                radial-gradient(ellipse at 10% 10%, rgba(0, 240, 255, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 90% 90%, rgba(121, 40, 202, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(255, 0, 229, 0.08) 0%, transparent 60%),
+                linear-gradient(180deg, #020617 0%, #071025 50%, #020617 100%);
+            z-index: -3;
+        }
+
+        /* GRADE DE REDE QUÂNTICA */
+        .grade-quantica {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+            background-size: 60px 60px;
+            z-index: -2;
+            animation: gradeFlutuar 20s linear infinite;
+        }
+        @keyframes gradeFlutuar {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(60px, 60px); }
+        }
+
+        /* PARTÍCULAS FLUTUANTES */
+        .particulas {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .particula {
+            position: absolute;
+            width: 4px; height: 4px;
+            background: var(--primario);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--primario), 0 0 20px var(--primario);
+            animation: flutuar 15s infinite ease-in-out;
+        }
+        @keyframes flutuar {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) scale(1); opacity: 0; }
+        }
+
+        /* LINHA DE ENERGIA HORIZONTAL */
+        .linha-topo {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 3px;
+            background: linear-gradient(90deg, var(--primario), var(--secundario), var(--destaque), var(--dourado), var(--primario));
+            background-size: 400% 100%;
+            animation: brilhoLinha 4s linear infinite;
+            z-index: 9999;
+        }
+        @keyframes brilhoLinha {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 400% 50%; }
+        }
+
+        /* CABEÇALHO FUTURISTA */
+        header {
+            padding: 1.5rem 2.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            backdrop-filter: blur(25px);
+            background: rgba(2, 6, 23, 0.7);
+            border-bottom: 1px solid rgba(0, 240, 255, 0.15);
+        }
+        .navegacao {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .marca {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .logo-simbolo {
+            width: 50px; height: 50px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primario), var(--secundario));
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 900; font-size: 1.5rem;
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.4), inset 0 0 15px rgba(255,255,255,0.2);
+            animation: pulsarLogo 3s ease-in-out infinite;
+        }
+        @keyframes pulsarLogo {
+            0%,100% { box-shadow: 0 0 25px rgba(0, 240, 255, 0.4), inset 0 0 15px rgba(255,255,255,0.2); }
+            50% { box-shadow: 0 0 40px rgba(0, 240, 255, 0.6), inset 0 0 25px rgba(255,255,255,0.3); }
+        }
+        .logo-texto {
+            font-weight: 800;
+            font-size: 1.8rem;
+            letter-spacing: 3px;
+            background: linear-gradient(90deg, #FFFFFF, var(--primario), #FFFFFF);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: brilhoTexto 4s linear infinite;
+        }
+        @keyframes brilhoTexto {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        .tag-futuro {
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            color: var(--primario);
+            opacity: 0.7;
+            margin-top: 2px;
+        }
+        .menu-navegacao {
+            display: flex; gap: 2.5rem; align-items: center;
+        }
+        .menu-navegacao a {
+            color: rgba(255,255,255,0.75);
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            position: relative;
+            transition: all 0.3s;
+        }
+        .menu-navegacao a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px; left: 0; width: 0; height: 2px;
+            background: linear-gradient(90deg, var(--primario), var(--destaque));
+            transition: width 0.3s ease;
+        }
+        .menu-navegacao a:hover { color: var(--primario); }
+        .menu-navegacao a:hover::after { width: 100%; }
+        .botao-primario {
+            padding: 0.85rem 2rem;
+            background: linear-gradient(135deg, var(--primario), var(--secundario));
+            border: none; border-radius: 8px;
+            color: #000;
+            font-weight: 700; font-size: 0.95rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.35);
+            transition: all 0.4s;
+            text-decoration: none;
+        }
+        .botao-primario:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 0 40px rgba(0, 240, 255, 0.5), 0 0 80px rgba(121, 40, 202, 0.3);
+        }
+
+        /* SEÇÃO PRINCIPAL — HOLOGRAMA */
+        .principal {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 2.5rem 8rem;
+            text-align: center;
+            position: relative;
+        }
+        .etiqueta-sistema {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid rgba(0, 240, 255, 0.35);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            color: var(--primario);
+            margin-bottom: 2.5rem;
+            background: rgba(0, 240, 255, 0.05);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.1) inset;
+        }
+        h1 {
+            font-size: 3.5rem;
+            line-height: 1.15;
+            margin-bottom: 2rem;
+        }
+        h1 span {
+            background: linear-gradient(90deg, var(--primario), var(--destaque), var(--dourado));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 300% auto;
+            animation: gradienteBrilho 6s linear infinite;
+        }
+        @keyframes gradienteBrilho {
+            0% { background-position: 0% center; }
+            100% { background-position: 300% center; }
+        }
+        .subtitulo-principal {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.65);
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+        }
+        .grupo-botoes {
+            display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 5rem;
+        }
+        .botao-glitch {
+            padding: 1.1rem 2.8rem;
+            background: linear-gradient(135deg, var(--primario), var(--secundario));
+            border: none; border-radius: 10px;
+            color: #000;
+            font-weight: 800; font-size: 1.05rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            position: relative; overflow: hidden;
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.4);
+            transition: all 0.3s;
+            text-decoration: none; display: inline-block;
+        }
+        .botao-glitch:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0 50px rgba(0, 240, 255, 0.6), 0 0 100px rgba(121, 40, 202, 0.4);
+        }
+        .botao-contorno {
+            padding: 1.1rem 2.8rem;
+            background: transparent;
+            border: 2px solid;
+            border-image: linear-gradient(135deg, var(--primario), var(--destaque)) 1;
+            border-radius: 10px;
+            color: #FFFFFF;
+            font-weight: 700; font-size: 1.05rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s;
+            text-decoration: none; display: inline-block;
+        }
+        .botao-contorno:hover {
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(121, 40, 202, 0.1));
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.25);
+        }
+
+        /* PAINEL DE ESTATÍSTICAS FLUTUANTE */
+        .painel-estatisticas {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .cartao-estatistica {
+            background: var(--vidro);
+            border: 1px solid rgba(0, 240, 255, 0.15);
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            backdrop-filter: blur(15px);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s;
+        }
+        .cartao-estatistica::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        .cartao-estatistica:hover::before { left: 100%; }
+        .cartao-estatistica:hover {
+            border-color: rgba(0, 240, 255, 0.4);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 240, 255, 0.1);
+        }
+        .numero-estatistica {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--primario), var(--destaque));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        .rotulo-estatistica {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.55);
+            letter-spacing: 1px;
+        }
+
+        /* SEÇÕES GERAIS */
+        .secao {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 2.5rem;
+        }
+        .cabecalho-secao {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .cabecalho-secao h2 {
+            font-size: 2.4rem;
+            margin-bottom: 1rem;
+        }
+        .cabecalho-secao h2 span {
+            color: var(--primario);
+        }
+        .linha-divisoria {
+            width: 80px; height: 4px;
+            background: linear-gradient(90deg, var(--primario), var(--secundario), var(--destaque));
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        /* RECURSOS */
+        .grade-recursos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .cartao-recurso {
+            background: var(--vidro);
+            border: 1px solid rgba(0, 240, 255, 0.12);
+            border-radius: 18px;
+            padding: 2.5rem;
+            backdrop-filter: blur(20px);
+            position: relative;
+            transition: all 0.4s ease;
+        }
+        .cartao-recurso::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, var(--primario), var(--destaque), var(--dourado));
+            opacity: 0;
+            transition: opacity 0.4s;
+            z-index: -1;
+        }
+        .cartao-recurso:hover {
+            transform: translateY(-10px);
+            border-color: transparent;
+        }
+        .cartao-recurso:hover::after { opacity: 0.15; }
+        .icone-recurso {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            filter: drop-shadow(0 0 15px currentColor);
+        }
+        .cartao-recurso h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--primario);
+        }
+        .cartao-recurso p {
+            color: rgba(255,255,255,0.6);
+            line-height: 1.7;
+        }
+
+        /* TECNOLOGIA */
+        .faixa-tecnologia {
+            background: linear-gradient(90deg, rgba(0, 240, 255, 0.05), rgba(121, 40, 202, 0.05), rgba(255, 0, 229, 0.05));
+            border: 1px solid rgba(0, 240, 255, 0.1);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        .texto-tecnologia h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+        .texto-tecnologia p {
+            color: rgba(255,255,255,0.6);
+            max-width: 600px;
+        }
+        .selo-futuro {
+            padding: 1rem 2rem;
+            border: 2px solid var(--dourado);
+            border-radius: 12px;
+            font-weight: 700;
+            color: var(--dourado);
+            box-shadow: 0 0 30px rgba(255, 230, 0, 0.25);
+            text-align: center;
+        }
+        .selo-futuro div:first-child { font-size: 0.8rem; opacity: 0.7; }
+        .selo-futuro div:last-child { font-size: 1.3rem; }
+
+        /* WHATSAPP FLUTUANTE — DESIGN ANO 2100 */
+        .whatsapp-flutuante {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+        }
+        .botao-ws {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00E676, #00C853, #00BFA5, #009688);
+            background-size: 200% 200%;
+            animation: gradienteWS 3s ease infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 
+                0 0 20px rgba(0, 230, 118, 0.4),
+                0 0 40px rgba(0, 200, 83, 0.2),
+                inset 0 0 20px rgba(255, 255, 255, 0.25);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+        }
+        @keyframes gradienteWS {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .botao-ws::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.35), transparent 60%);
+            pointer-events: none;
+        }
+        .botao-ws:hover {
+            transform: scale(1.15) rotate(6deg);
+            box-shadow: 
+                0 0 35px rgba(0, 230, 118, 0.6),
+                0 0 70px rgba(0, 200, 83, 0.35),
+                0 0 100px rgba(0, 150, 136, 0.2);
+        }
+        .botao-ws svg {
+            width: 36px;
+            height: 36px;
+            fill: #fff;
+            filter: drop-shadow(0 0 4px rgba(0,0,0,0.2));
+            z-index: 1;
+        }
+        .anel-externo {
+            position: absolute;
+            width: 84px;
+            height: 84px;
+            border-radius: 50%;
+            border: 1px solid rgba(0, 230, 118, 0.35);
+            animation: anelPulsar 2.5s infinite;
+        }
+        .anel-externo:nth-child(2) {
+            animation-delay: 0.8s;
+            width: 96px;
+            height: 96px;
+            border-color: rgba(0, 200, 83, 0.2);
+        }
+        @keyframes anelPulsar {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+        .rotulo-ws {
+            position: absolute;
+            right: 95px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(2, 6, 23, 0.9);
+            padding: 0.8rem 1.2rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 230, 118, 0.25);
+            box-shadow: 0 0 20px rgba(0, 230, 118, 0.15);
+        }
+        .whatsapp-flutuante:hover .rotulo-ws {
+            opacity: 1;
+            transform: translateY(-50%) translateX(-5px);
+        }
+
+        /* RODAPÉ */
+        footer {
+            border-top: 1px solid rgba(0, 240, 255, 0.15);
+            padding: 4rem 2.5rem 3rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        .logo-rodape {
+            font-weight: 800;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--primario), var(--destaque));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .texto-rodape {
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 0.5rem;
+        }
+        .assinatura {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 240, 255, 0.08);
+            color: rgba(255,255,255,0.35);
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+        }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 1200px) {
+            .painel-estatisticas { grid-template-columns: repeat(2, 1fr); }
+            .grade-recursos { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .menu-navegacao { display: none; }
+            .painel-estatisticas { grid-template-columns: 1fr; }
+            .grade-recursos { grid-template-columns: 1fr; }
+            .secao, .principal { padding-left: 1.2rem; padding-right: 1.2rem; }
+            .whatsapp-flutuante { bottom: 20px; right: 20px; }
+            .botao-ws { width: 62px; height: 62px; }
+            .botao-ws svg { width: 30px; height: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ELEMENTOS DE FUNDO -->
+    <div class="linha-topo"></div>
+    <div class="fundo-quantico"></div>
+    <div class="grade-quantica"></div>
+    <div class="particulas" id="particulas"></div>
+
+    <!-- CABEÇALHO -->
+    <header>
+        <nav class="navegacao">
+            <div class="marca">
+                <div class="logo-simbolo">N</div>
+                <div>
+                    <div class="logo-texto">NEXVON SITES</div>
+                    <div class="tag-futuro">SISTEMA · ANO 2100</div>
+                </div>
+            </div>
+            <div class="menu-navegacao">
+                <a href="#inicio">Início</a>
+                <a href="#recursos">Recursos</a>
+                <a href="#tecnologia">Tecnologia</a>
+                <a href="#sobre">Sobre</a>
+                <a href="https://wa.me/5519997048175?text=Olá! Vim pelo site NEXVON SITES — Sistema 2100 e quero criar meu site." class="botao-primario" target="_blank">ACESSAR</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- SEÇÃO PRINCIPAL -->
+    <main class="principal" id="inicio">
+        <div class="etiqueta-sistema">⚙️ SISTEMA OPERACIONAL NEXVON — v21.00.00</div>
+        <h1>O Futuro da Criação de Sites<br><span>Chegou Antes da Hora</span></h1>
+        <p class="subtitulo-principal">
+            A plataforma de criação digital mais avançada já concebida. Com tecnologia quântica, inteligência artificial preditiva e design de interface projetado para o ano 2100 — agora disponível para você. Crie, publique e escale presenças digitais com perfeição absoluta.
+        </p>
+        <div class="grupo-botoes">
+            <a href="https://wa.me/5519997048175?text=Olá! Vim pelo site NEXVON SITES — quero INICIAR AGORA a criação do meu site." class="botao-glitch" target="_blank">🚀 INICIAR AGORA</a>
+            <a href="https://wa.me/5519997048175?text=Olá! Vim pelo site NEXVON SITES — quero uma demonstração." class="botao-contorno" target="_blank">VISUALIZAR DEMONSTRAÇÃO</a>
+        </div>
+
+        <!-- PAINEL DE INDICADORES -->
+        <div class="painel-estatisticas">
+            <div class="cartao-estatistica">
+                <div class="numero-estatistica">∞</div>
+                <div class="rotulo-estatistica">Escala Quântica</div>
+            </div>
+            <div class="cartao-estatistica">
+                <div class="numero-estatistica">0.001s</div>
+                <div class="rotulo-estatistica">Geração Instantânea</div>
+            </div>
+            <div class="cartao-estatistica">
+                <div class="numero-estatistica">99.99%</div>
+                <div class="rotulo-estatistica">Disponibilidade Global</div>
+            </div>
+            <div class="cartao-estatistica">
+                <div class="numero-estatistica">IA+</div>
+                <div class="rotulo-estatistica">Inteligência Artificial Avançada</div>
+            </div>
+        </div>
+    </main>
+
+    <!-- RECURSOS -->
+    <section class="secao" id="recursos">
+        <div class="cabecalho-secao">
+            <h2>Capacidades <span>de Última Geração</span></h2>
+            <div class="linha-divisoria"></div>
+        </div>
+        <div class="grade-recursos">
+            <div class="cartao-recurso">
+                <div class="icone-recurso">🧠</div>
+                <h3>IA Neural Avançada</h3>
+                <p>Inteligência artificial que compreende seu objetivo e projeta automaticamente a estrutura, design e conteúdo ideais com precisão quântica.</p>
+            </div>
+            <div class="cartao-recurso">
+                <div class="icone-recurso">⚡</div>
+                <h3>Velocidade Relâmpago</h3>
+                <p>Sites gerados em milissegundos. Hospedagem em rede distribuída globalmente com carregamento instantâneo em qualquer continente.</p>
+            </div>
+            <div class="cartao-recurso">
+                <div class="icone-recurso">🛡️</div>
+                <h3>Segurança Implacável</h3>
+                <p>Criptografia quântica de ponta a ponta. Backup multidimensional e proteção contra qualquer ameaça digital conhecida ou futura.</p>
+            </div>
+            <div class="cartao-recurso">
+                <div class="icone-recurso">🎨</div>
+                <h3>Design Holográfico</h3>
+                <p>Interfaces que se adaptam ao observador. Experiência visual tridimensional em qualquer dispositivo sem óculos especiais.</p>
+            </div>
+            <div class="cartao-recurso">
+                <div class="icone-recurso">📡</div>
+                <h3>SEO Cósmico</h3>
+                <p>Otimização algorítmica que garante posicionamento máximo em qualquer motor de busca, presente ou futuro.</p>
+            </div>
+            <div class="cartao-recurso">
+                <div class="icone-recurso">🔮</div>
+                <h3>Análise Preditiva</h3>
+                <p>Antecipa o comportamento dos visitantes e adapta o site em tempo real para máxima conversão e engajamento.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECNOLOGIA -->
+    <section class="secao" id="tecnologia">
+        <div class="cabecalho-secao">
+            <h2>Arquitetura <span>do Futuro</span></h2>
+            <div class="linha-divisoria"></div>
+        </div>
+        <div class="faixa-tecnologia">
+            <div class="texto-tecnologia">
+                <h3>Construído com tecnologia que ainda não existe</h3>
+                <p>A NEXVON SITES foi projetada com princípios científicos que só serão padrão no século seguinte. Usamos simulação de matriz de possibilidades, renderização vetorial adaptativa e infraestrutura que se auto-repara e evolui sozinha. Hoje você usa o que o mundo inteiro usará em 2100.</p>
+            </div>
+            <div class="selo-futuro">
+                <div>ANO DE REFERÊNCIA</div>
+                <div>2100 ✦</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section class="secao" id="sobre">
+        <div class="cabecalho-secao">
+            <h2>Sobre a <span>NEXVON</span></h2>
+            <div class="linha-divisoria"></div>
+        </div>
+        <div style="text-align: center; max-width: 900px; margin: 0 auto;">
+            <p style="font-size: 1.2rem; line-height: 1.9; color: rgba(255,255,255,0.7);">
+                A NEXVON SITES não é apenas uma ferramenta de criação. É um ecossistema digital completo, projetado para transcender os limites do que é possível hoje. Nossa missão: trazer para o presente o futuro da tecnologia, permitindo que qualquer empresa — independentemente de tamanho ou recursos — tenha acesso à infraestrutura digital mais avançada do planeta.
+            </p>
+            <p style="margin-top: 2rem; color: var(--primario); letter-spacing: 2px; font-weight: 600;">
+                "O futuro não se espera. Se constrói."
+            </p>
+        </div>
+    </section>
+
+    <!-- CHAMADA FINAL -->
+    <section class="secao" id="contato" style="padding-bottom: 6rem;">
+        <div style="text-align: center; background: linear-gradient(135deg, rgba(0,240,255,0.08), rgba(121,40,202,0.08), rgba(255,0,229,0.08)); border: 1px solid rgba(0,240,255,0.2); border-radius: 24px; padding: 4rem 3rem; margin-top: 2rem;">
+            <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">Pronto para entrar no futuro?</h2>
+            <p style="color: rgba(255,255,255,0.7); font-size: 1.1rem; margin-bottom: 2rem;">O universo digital está esperando por você. Crie agora com a tecnologia de 2100.</p>
+            <a href="https://wa.me/5519997048175?text=Olá! Vim pelo site NEXVON SITES — quero criar meu site agora!" class="botao-glitch" target="_blank">🌐 CRIAR MEU SITE</a>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <div class="logo-rodape">NEXVON SITES</div>
+        <p class="texto-rodape">Plataforma Quântica de Criação e Divulgação Digital</p>
+        <p class="texto-rodape">Av. Paulista, 2278 — São Paulo — SP | +55 (19) 99704-8175</p>
+        <p class="assinatura">© 2026 — SISTEMA DE REFERÊNCIA 2100 · TODOS OS DIREITOS RESERVADOS · TECNOLOGIA DO FUTURO</p>
+    </footer>
+
+    <!-- WHATSAPP FLUTUANTE — DESIGN ANO 2100 -->
+    <div class="whatsapp-flutuante">
+        <a href="https://wa.me/5519997048175?text=Olá! Vim pelo site NEXVON SITES — Sistema 2100 e preciso de ajuda." target="_blank" class="botao-ws" title="Falar pelo WhatsApp">
+            <div class="anel-externo"></div>
+            <div class="anel-externo"></div>
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.151-.197.297-.768.966-.94 1.163-.173.198-.346.223-.643.075-.297-.15-1.255-.463-2.39-1.476-.883-.88-1.476-1.962-1.653-2.261-.173-.298-.018-.458.133-.607.137-.136.297-.347.446-.52.149-.172.198-.296.297-.495.099-.198.05-.372-.025-.52-.075-.15-.67-1.62-.917-2.21-.242-.579-.487-.501-.67-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479c0 1.462 1.065 2.875 1.214 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.696.626.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.413-.074-.124-.272-.198-.57-.347m-5.42 7.413h-.064c-2.027-.057-3.827-.708-5.348-1.897l-.386-.284-3.764.988 1.01-3.677-.313-.403c-1.323-1.7-2.023-3.698-2.023-5.848 0-4.765 3.874-8.638 8.653-8.638 2.312 0 4.473.902 6.098 2.527 1.624 1.625 2.525 3.786 2.525 6.1 0 4.765-3.874 8.654-8.652 8.654m7.529-16.141C15.445.837 12.482 0 9.457 0 4.394 0 .264 4.13.26 9.194c0 1.613.42 3.184 1.215 4.586L0 24l10.336-2.697c1.379.751 2.912 1.149 4.529 1.15h.005c5.063 0 9.193-4.13 9.196-9.196 0-2.457-.954-4.764-2.685-6.495C21.53 3.647 19.357 1.707 16.81 0.654z"/></svg>
+        </a>
+        <div class="rotulo-ws">
+            💬 Fale Agora<br>
+            <strong>(19) 99704-8175</strong>
+        </div>
+    </div>
+
+    <!-- GERADOR DE PARTÍCULAS DINÂMICAS -->
+    <script>
+        const container = document.getElementById('particulas');
+        const qtd = 60;
+        const cores = ['#00F0FF', '#7928CA', '#FF00E5', '#FFE600'];
+        
+        for (let i = 0; i < qtd; i++) {
+            const p = document.createElement('div');
+            p.classList.add('particula');
+            p.style.left = Math.random() * 100 + '%';
+            p.style.animationDelay = Math.random() * 15 + 's';
+            p.style.animationDuration = (12 + Math.random() * 10) + 's';
+            p.style.background = cores[Math.floor(Math.random() * cores.length)];
+            p.style.boxShadow = `0 0 10px ${p.style.background}, 0 0 20px ${p.style.background}`;
+            p.style.width = p.style.height = (2 + Math.random() * 4) + 'px';
+            container.appendChild(p);
+        }
+    </script>
+
+</body>
+</html>
